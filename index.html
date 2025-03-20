@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dark</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Oswald&family=Playfair+Display&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .light-mode {
+            background: #ffffff;
+            color: #000000;
+        }
+
+        .dark-mode {
+            background: #121212;
+            color: #ffffff;
+        }
+
+        .toggle-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: rgb(248, 33, 69);
+            color: white;
+            font-size: 16px;
+        }
+
+
+
+        /* /////////////////////////button css////////////////// */
+        /* From Uiverse.io by chase2k25 */
+        /* Switch Container */
+        .switch-container {
+            position: relative;
+            width: 100px;
+            height: 45px;
+            background: #d6d6d6;
+            border-radius: 50px;
+            box-shadow:
+                inset -8px -8px 16px #ffffff,
+                inset 8px 8px 16px #b0b0b0;
+        }
+
+        /* Hidden Checkbox */
+        .toggle-checkbox {
+            display: none;
+        }
+
+        /* Switch Label (Interactive Area) */
+        .switch {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 80%;
+            transform: translateY(-50%);
+            border-radius: 50px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        /* Toggle Button */
+        .toggle {
+            position: absolute;
+            width: 40px;
+            height: 30px;
+            background: linear-gradient(145deg, #d9d9d9, #bfbfbf);
+            border-radius: 50px;
+            top: 3px;
+            left: 4px;
+            box-shadow:
+                -4px -4px 8px #ffffff,
+                4px 4px 8px #b0b0b0;
+            transition: all 0.3s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 10px;
+        }
+
+        /* LED Light */
+        .led {
+            width: 10px;
+            height: 10px;
+            background: grey;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* Active State for Toggle (ON) */
+        .toggle-checkbox:checked+.switch .toggle {
+            left: 65px;
+            background: linear-gradient(145deg, #cfcfcf, #a9a9a9);
+            box-shadow:
+                -4px -4px 8px #ffffff,
+                4px 4px 8px #8a8a8a;
+        }
+
+        .toggle-checkbox:checked+.switch .led {
+            background: yellow;
+            box-shadow: 0 0 15px 4px yellow;
+        }
+
+        /* Hover Effect */
+        .switch:hover .toggle {
+            box-shadow:
+                -4px -4px 12px #ffffff,
+                4px 4px 12px #9b9b9b;
+        }
+        .navbar {
+            display: block;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background-color: #007BFF;
+            color: white;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        @media (min-width:500px) {
+            .btn_one{
+                 
+                display: none;
+            }
+
+            
+        }
+        @media (max-width:500px) {
+            .navbar{
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+   
+    <nav class="navbar">
+      
+        <div>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+
+        <div class="switch-container">
+            <input class="toggle-checkbox" id="toggle-switch" type="checkbox" />
+            <label class="switch" for="toggle-switch">
+              <div class="toggle" onclick="toggleMode()">
+                <div class="led"></div>
+              </div>
+            </label>
+          </div>
+    </nav>
+    
+    <div class="main_box">
+        <input type="checkbox" id="check" />
+        <div class="btn_one">
+          <label for="check" style="color: black">
+            <i class="fa-solid fa-bars"></i>
+          </label>
+        </div>
+  
+        <div class="sidebar_menu">
+          <div class="logo">
+            <a href="#">Menu Bar</a>
+          </div>
+  
+          <div class="btn_two">
+            <label for="check" style="color: grey">
+              <i class="fa-solid fa-xmark"></i>
+            </label>
+          </div>
+  
+          <div class="menu">
+            <ul>
+              <li>
+                <i class="fa-solid fa-image"></i>
+                <a href="#">Sign Up</a>
+              </li>
+              <li>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                <a href="#">Get Started</a>
+              </li>
+
+            </ul>
+          </div>
+  
+        
+        </div>
+      </div>
+
+    <!-- From Uiverse.io by chase2k25 --> 
+
+  
+    <!-- <button class="toggle-button" onclick="toggleMode()">Dark</button> -->
+
+    <script>
+        function toggleMode() {
+            const body = document.body;
+            const isDarkMode = body.classList.toggle("dark-mode");
+            body.classList.toggle("light-mode", !isDarkMode);
+            localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+        }
+
+        // Load saved theme from localStorage
+        window.onload = function () {
+            const savedTheme = localStorage.getItem("theme") || "light";
+            document.body.classList.add(savedTheme + "-mode");
+        };
+    </script>
+</body>
+
+</html>
